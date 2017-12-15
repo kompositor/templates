@@ -1,15 +1,27 @@
 buildscript {
     ext.kotlin_version = '{{kotlin.version}}'
+    {{#gradle-ext-block}}
+    {{.}}
+    {{/gradle-ext-block}}
 
     repositories {
         jcenter()
     }
+
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-
-        {{gradle-dependencies}}
+        {{#gradle-build-dependencies}}
+        {{.}}
+        {{/gradle-build-dependencies}}
     }
 }
 
 apply plugin: 'kotlin'
 
+dependencies {
+        compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+
+        {{#gradle-dependencies}}
+        {{.}}
+        {{/gradle-dependencies}}
+}
