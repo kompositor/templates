@@ -23,6 +23,9 @@ buildscript {
 {{#version}}version '{{.}}'{{/version}}
 
 apply plugin: 'kotlin'
+{{#layer:gradle-plugins}}
+apply plugin: '{{.}}'
+{{/layer:gradle-plugins}}
 
 repositories {
     jcenter()
