@@ -41,3 +41,7 @@ dependencies {
         {{.}}
         {{/layer:gradle-dependencies}}
 }
+
+{{#layer:gradle-after}}
+{{.}}
+{{/layer:gradle-after}}
